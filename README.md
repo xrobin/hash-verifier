@@ -1,1 +1,1 @@
-hash-tool
+- Install with `pip install md5-checksum-verifier`
