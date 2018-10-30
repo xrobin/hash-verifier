@@ -26,44 +26,32 @@ import re
 import urllib.request
 import os
 
-#Functions
-def validHash(hash):#MD5 Verifier
-    vHash = re.finditer(r'(?=(\b[A-Fa-f0-9]{32}\b))', hash)
-    result = [match.group(1) for match in validHash]
-    if result:  return True
-    else:   return False
+class verifyTool(object):
 
-def genHash(item):
-    hash_md5 = hashlib.md5()
-    with open(item, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
-            hash_md5.update(chunk)
-    return hash_md5.hexdigest()
+    """not needed atm"""
+    #def __init__(self):
+     #   some="shit"
 
-def validate(hash,source):
-    urllib.request.urlretrieve(source, 'temp.whl')
-    newHash = genHash('temp.whl')
-    if hash == newHash: print("OK")
-    elif hash != newHash: raise Exception('CHECKSUM DID NOT "CHECK" OUT, IT IS INVALID. MAKE SURE THAT YOUR VERSION HAS NOT BEEN ALTERED, OR THE SOURCE HAS NOT BEEN ALTERED')
-    os.remove('temp.whl')
+    #Functions
+    @staticmethod
+    def validHash(hash):#MD5 Verifier
+        vHash = re.finditer(r'(?=(\b[A-Fa-f0-9]{32}\b))', hash)
+        result = [match.group(1) for match in validHash]
+        if result:  return True
+        else:   return False
 
+    @staticmethod
+    def genHash(item):
+        hash_md5 = hashlib.md5()
+        with open(item, "rb") as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                hash_md5.update(chunk)
+        return hash_md5.hexdigest()
 
-#pyAudio
-#amd64
-currentHash = genHash('PyAudio-0.2.11-cp37-cp37m-win_amd64.whl')
-validHash(currentHash)
-validate(currentHash,'https://download.lfd.uci.edu/pythonlibs/h2ufg7oq/pyHook-1.5.1-cp37-cp37m-win_amd64.whl')
-#win32
-currentHash = genHash('PyAudio-0.2.11-cp37-cp37m-win32.whl')
-validHash(currentHash)
-validate(currentHash,'https://download.lfd.uci.edu/pythonlibs/h2ufg7oq/PyAudio-0.2.11-cp37-cp37m-win32.whl')
-
-#pyHook
-#amd64
-currentHash = genHash('pyHook-1.5.1-cp37-cp37m-win_amd64.whl')
-validHash(currentHash)
-validate(currentHash,'https://download.lfd.uci.edu/pythonlibs/h2ufg7oq/pyHook-1.5.1-cp37-cp37m-win_amd64.whl')
-#win32
-currentHash = genHash('pyHook-1.5.1-cp37-cp37m-win32.whl')
-validHash(currentHash)
-validate(currentHash,'https://download.lfd.uci.edu/pythonlibs/h2ufg7oq/pyHook-1.5.1-cp37-cp37m-win32.whl')
+    @staticmethod
+    def validate(hash,source):
+        urllib.request.urlretrieve(source, 'temp.obj')
+        newHash = genHash('temp.obj')
+        if hash == newHash: return True
+        elif hash != newHash: raise Exception('CHECKSUM DID NOT "CHECK" OUT, IT IS INVALID. MAKE SURE THAT YOUR VERSION HAS NOT BEEN ALTERED, OR THE SOURCE HAS NOT BEEN ALTERED')
+        os.remove('temp.obj')
