@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     # Application name:
-    name="MD5 Checksum verification tool",
+    name="MD5 Checksum verifier",
 
     # Version number (initial):
     version="0.1.1",
