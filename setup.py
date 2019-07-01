@@ -8,7 +8,7 @@ setuptools.setup(
     name="MD5 Checksum verifier",
 
     # Version number (initial):
-    version="0.1.2",
+    version="0.1.3",
 
     # Application author details:
     author="Brendan T D. Jennings",
