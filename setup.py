@@ -21,7 +21,7 @@ setuptools.setup(
     include_package_data=True,
 
     # Details
-    url="https://github.com/dudeisbrendan03/consoleTools",
+    url="https://github.com/dudeisbrendan03/hash-verifier",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
